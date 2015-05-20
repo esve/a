@@ -1,0 +1,2 @@
+#AllowOverride +Indexes
+#DirectoryIndex /public/index.php

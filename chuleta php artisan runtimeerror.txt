@@ -1,0 +1,14 @@
+https://laracasts.com/discuss/channels/general-discussion/runtimeexception-on-fresh-install?page=1
+
+
+
+You are welcome. The php artisan clear-compiled command had to be run before the framework was updated. That why it didn't work and you had to delete vendor/compiled.php manually.
+
+I use a tiny update script to make sure I do not forget:
+
+php artisan down
+php artisan clear-compiled
+composer update --no-dev
+php artisan optimize
+php artisan up
+Edit: Make sure you run php artisan optimize after the update to rebuild compiled.php.
