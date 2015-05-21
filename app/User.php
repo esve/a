@@ -18,20 +18,19 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $table = 'usuarios';
 
 	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
-
-
-	//protected $fillable = ['name', 'email', 'password'];
-    protected $fillable = ['username', 'email', 'password'];
-
-	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+    //protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['username', 'email', 'password'];
+
+    //relationships
+
+    public function getProfile()
+    {
+      return $this->hasOne('Profile','id');
+    }
 }

@@ -15,8 +15,14 @@
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
-Route::get('perfil', 'ProfileController@index');
+/* get Profile */
+Route::get('profile', array(
+    'as' => 'profile',
+    'before' => 'auth',
+    'uses' => 'ProfileController@getProfile')
+);
 
+/* Auth */
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
