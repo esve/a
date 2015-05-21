@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div id="centerBlock" style="margin: 0 auto;width: 50%;display: table;">
-            <img src="{{asset('images/default-user.png')}}" style="margin: 0 auto;display: flex;}" id="profileImage" width="150px" height="150px">
+            <img src="{{Auth::user()->getProfile->profilePic}}" style="margin: 0 auto;display: flex;}" id="profileImage" width="150px" height="150px">
                 <br>
             <input type="file" id="profilePicture" name="profilePicture" class="col-lg-12">
             </div>
