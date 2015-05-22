@@ -9,6 +9,18 @@ I use a tiny update script to make sure I do not forget:
 php artisan down
 php artisan clear-compiled
 composer update --no-dev
+//
+//composer dump-autoload
+//
 php artisan optimize
 php artisan up
-Edit: Make sure you run php artisan optimize after the update to rebuild compiled.php.
+
+
+Edit: Make sure you run php artisan optimize after the update 
+to rebuild compiled.php.
+
+
+
+config/app.php 
+
+debug => false, para poder generar el compiled.php con php artisan optimizer

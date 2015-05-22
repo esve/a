@@ -4,6 +4,7 @@
  * Informacion Global del perfil del Usuario Logeado (Local)
  */
 
+
 function myID()
 {
     return Auth::user()->id;
@@ -39,4 +40,9 @@ function goSteamId()
 {
     return Auth::user()->gosteamid;
 }
-?>
+
+function myPic()
+{
+    return Auth::user()->pic;
+}
+

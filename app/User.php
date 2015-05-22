@@ -31,6 +31,20 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function getProfile()
     {
-      return $this->hasOne('usuarios', '', 'id');
+      return $this->hasOne('App\User', 'id');
     }
+
+
+    /**
+     * Informacion Global del perfil del Usuario Logeado (Local)
+     */
+
+    public function getCountry()
+    {
+        $user = Auth::user();
+
+        return $user->country_code;
+    }
+
+
 }

@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\User;
+
 class ProfileController extends Controller {
 
     /*
@@ -24,11 +26,33 @@ class ProfileController extends Controller {
     /**
      * getProfile
      *
-     *   */
+     **/
 
     public function getProfile()
     {
+        $user = User::first();
+        //dd($user->firstname);
         return view('profile');
+        //dd($user->getProfile->email);
+        //Mi informacion
+
+        //$users = User::get();
+
+        /*
+        mas especifico
+
+        $users = User::select('id', 'firstname')
+            ->with('getProfile')
+            ->where('firstname', 'Jean')
+            ->orderBy('firstname', 'ASC')
+            ->get();
+
+        */
+
+        /*
+        muestra informacion y la ordena mejor como un array
+        dd($users->toArray());
+        */
     }
 
     public function editProfile()

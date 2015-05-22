@@ -14,6 +14,8 @@ return [
 	*/
 
 	'debug' => env('APP_DEBUG'),
+    // en false, se generara el compiled.php con el comando: php artisan optimize
+    //'debug' => false,
 
 	/*
 	|--------------------------------------------------------------------------
