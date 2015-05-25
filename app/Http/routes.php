@@ -22,6 +22,9 @@ Route::get('profile', array(
     'uses' => 'ProfileController@getProfile')
 );
 
+/* Controlador de Prueba */
+Route::get('prueba', 'PruebaController@index');
+
 /* Auth */
 Route::controllers([
 	'auth' => 'Auth\AuthController',

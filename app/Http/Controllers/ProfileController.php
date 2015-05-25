@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
+use Symfony\Component\HttpFoundation\Tests\Session\Attribute\AttributeBagTest;
 
 class ProfileController extends Controller {
 
@@ -23,24 +25,31 @@ class ProfileController extends Controller {
         $this->middleware('auth');
     }
 
-    /**
-     * getProfile
-     *
-     **/
 
     public function getProfile()
     {
-        $user = User::first();
-        //dd($user->firstname);
-        return view('profile');
-        //dd($user->getProfile->email);
-        //Mi informacion
+        /* meto informacion del usuario en mi variable */
+        $usuario = Auth::user();
 
-        //$users = User::get();
+        /* Formula extra get todos los usuarios */
+        //$usuario = User::get();
+
+        /* Una vez con variable, la ingreso, Opcion 1 */
+        return view('profile')
+            ->with('miuser', $usuario);
+
+        /* Una vez con variable, la ingreso, Opcion 2  */
+        //return view('profile', ['miuser' => $usuario]);
+
+        // debug
+        // dd($user);
+
 
         /*
-        mas especifico
+        Query Mas detallado
+        */
 
+        /*
         $users = User::select('id', 'firstname')
             ->with('getProfile')
             ->where('firstname', 'Jean')
@@ -50,7 +59,7 @@ class ProfileController extends Controller {
         */
 
         /*
-        muestra informacion y la ordena mejor como un array
+        muestra informacion de arriba y la ordena mejor como un array
         dd($users->toArray());
         */
     }
@@ -62,20 +71,7 @@ class ProfileController extends Controller {
 
     public function updateProfile()
     {
-        $file = Input::file('pic');
-        $profile = Profile::Where('id', '=', Auth::user()->id->get());
-        $profile->firstname = Input::get('firstname');
-
-        $fileName = Str::random(8);
-        $extension = $file->getClientOriginalExtension();
-        $name = $fileName.'.'.$extension;
-
-        $profile->profilePic = '/images/'.$name;
-        $profile->save();
-
-        $file->move('/images/', $name);
-
-        return $profile->profilePic;
+        //
     }
 
 

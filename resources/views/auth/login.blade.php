@@ -1,5 +1,5 @@
 @extends('app')
-
+@section('title', 'Login')
 @section('content')
 <div class="container-fluid">
 	<div class="row">

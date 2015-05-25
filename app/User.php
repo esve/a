@@ -39,12 +39,5 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * Informacion Global del perfil del Usuario Logeado (Local)
      */
 
-    public function getCountry()
-    {
-        $user = Auth::user();
-
-        return $user->country_code;
-    }
-
 
 }

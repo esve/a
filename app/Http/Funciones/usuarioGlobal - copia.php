@@ -6,42 +6,42 @@
 
 function myID()
 {
-    return false;
+    return Auth::user()->id;
 }
 
 
 function myUsername()
 {
-    return false;
+    return Auth::user()->username;
 }
 
 function myCountry()
 {
-    return false;
+    return Auth::user()->country_code;
 }
 
 function myName()
 {
-    return false;
+    return Auth::user()->firstname;
 }
 
 function myLastname()
 {
-    return false;
+    return Auth::user()->lastname;
 }
 
 function eMailAddress()
 {
-    return false;
+    return Auth::user()->email;
 }
 
 function goSteamId()
 {
-    return false;
+    return Auth::user()->gosteamid;
 }
 
 function myPic()
 {
-    return false;
+    return Auth::user()->pic;
 }
 
