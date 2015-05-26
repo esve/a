@@ -29,14 +29,20 @@ class ProfileController extends Controller {
     public function getProfile()
     {
         /* meto informacion del usuario en mi variable */
-        $usuario = Auth::user();
+        //$usuario = Auth::user();
+        $myid = Auth::user()->id;
+        $usuario = User::find($myid);
+        $games = ['CS:GO','Dota','LoL','CS 1.6'];
 
         /* Formula extra get todos los usuarios */
         //$usuario = User::get();
 
         /* Una vez con variable, la ingreso, Opcion 1 */
-        return view('profile')
-            ->with('miuser', $usuario);
+
+
+         return view('profile')
+            ->with('miuser', $usuario)
+            ->with('games', $games);
 
         /* Una vez con variable, la ingreso, Opcion 2  */
         //return view('profile', ['miuser' => $usuario]);

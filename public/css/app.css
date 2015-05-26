@@ -6257,3 +6257,19 @@ flex-direction: row;
     display: flex;
     border-radius: 50%;
 }
+
+.listGamesSidebar li {
+list-style: none;
+    display:flex;
+}
+
+.listGamesSidebar span {
+
+}
+	
+.listGamesSidebar li input {
+	width:16px;
+    margin-left:5px;
+	height:16px;
+    vertical-align: sub;
+}

@@ -1,4 +1,4 @@
-@section('title', 'Inicio')
+@section('title', 'Bienvenidos')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ESVE - @yield('title')</title>
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<!-- link href="{ { asset('/css/app.css') } }" rel="stylesheet" -->
     {!! Html::style('/css/app.css') !!}
 	<!-- Fonts -->
@@ -43,7 +43,7 @@
 						<li><a href="{{ url('/auth/register') }}">Register</a></li>
 					@else
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->username }} <br> ( {{Auth::user()->email}} ) <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->username }}  ( {{Auth::user()->email}} ) <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/profile') }}">Profile</a></li>
                                 <li><a href="{{ url('/auth/logout') }}">Logout</a></li>

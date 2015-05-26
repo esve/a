@@ -11,19 +11,28 @@
 |
 */
 
+$tablausuarios = 'usuarios';
+
 //Route::get('/', 'WelcomeController@index');
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
 /* get Profile */
-Route::get('profile', array(
-    'as' => 'profile',
-    'before' => 'auth',
-    'uses' => 'ProfileController@getProfile')
-);
+Route::get('profile', 'ProfileController@getProfile');
+Route::get('profile/editar', 'ProfileController@editProfile');
 
 /* Controlador de Prueba */
 Route::get('prueba', 'PruebaController@index');
+
+/* Get Perfiles de Usuarios */
+Route::get('user/{usuario}', function($usuario) {
+    $usuario = DB::table('usuarios')->where('username', $usuario)->first();
+    return view('users.profile')->with('user',$usuario);
+});
+
+Route::get('users', function() {
+    DB::table('usuarios');
+});
 
 /* Auth */
 Route::controllers([

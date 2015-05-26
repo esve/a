@@ -6,38 +6,37 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+{
 
-	use Authenticatable, CanResetPassword;
+    use Authenticatable, CanResetPassword;
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'usuarios';
+    /**
+     * Nombre de la tabla en la base de datos, en caso contrario de no contener, obtiene por defecto el nombre del archivo
+     * User * y supone nombre el nombre de la tabla "user"
+     *
+     * @var string
+     */
+    protected $table = 'usuarios';
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = ['password', 'remember_token'];
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = ['password', 'remember_token'];
 
-    //protected $fillable = ['name', 'email', 'password'];
+    /*
+     *  Aqui iran los nombres de los campos que el formulario ingresara a la DB.
+     */
+
     protected $fillable = ['username', 'email', 'password'];
 
     //relationships
-
+}
+    /*
     public function getProfile()
     {
       return $this->hasOne('App\User', 'id');
     }
-
-
-    /**
-     * Informacion Global del perfil del Usuario Logeado (Local)
-     */
-
-
-}
+    */
