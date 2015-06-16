@@ -46,19 +46,6 @@
                 <div class="col-md-8">
                     {!! Form::text('lastname', null, ['class' => 'form-control', 'type' => 'text', 'placeholder' => Auth::user()->lastname]) !!}
                 </div>
+            </div><!-- form-group -->
             </div>
-            <hr>
-            <div id="centerBlock" class="flexcontainer">
-                <div>
-                    @if (Auth::user()->pic)
-                    <img src="{!! $miuser->pic !!}" class="profileIMG" id="profileImage" width="150px" height="150px"> <br>
-                    @else
-                        <img src="images/default-user.png" class="profileIMG" id="profileImage" width="150px" height="150px">
-                        <h1 style="text-align:center">No tienes imagen, elije una.</h1>
-                    @endif
-                    <input type="file" id="profilePicture" name="profilePicture" class="" style="margin:0 auto;border:0px solid darkred">
-                </div>
-            </div> <!-- form-group -->
-            </div>
-        <hr>
     </form>

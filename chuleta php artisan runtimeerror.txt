@@ -24,3 +24,17 @@ to rebuild compiled.php.
 config/app.php 
 
 debug => false, para poder generar el compiled.php con php artisan optimizer
+
+
+########################################################################################################################
+Fatal error: require(): Failed opening required 'G:\WWW\esve/bootstrap/autoload.php' (include_path='.;C:\php\pear') in 
+G:\WWW\esve\artisan on line 16
+Call Stack:
+    0.0000     124400   1. {main}() G:\WWW\esve\artisan:0
+
+-------------------------------------------------------------------------------------------------------------------------
+Please delete bootstrap/compiled.php and then try running php artisan optimize or composer update - it worked for me!
+
+
+
+########################################################################################################################

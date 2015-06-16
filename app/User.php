@@ -1,10 +1,13 @@
 <?php namespace App;
 
+use Auth;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Encryption\Encrypter;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -32,11 +35,44 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     protected $fillable = ['username', 'email', 'password'];
 
-    //relationships
-}
-    /*
-    public function getProfile()
+
+    /* Friends */
+
+    public function getFullName()
     {
-      return $this->hasOne('App\User', 'id');
+        return $this->username;
+        //return $this->firstname . ' ' . $this->lastname;
     }
-    */
+
+    public function friends()
+    {
+        //return $this->hasMany('App\User', 'user_id', 'friend_id');
+        return $this->belongsToMany('App\User', 'friends', 'user_id', 'friend_id');
+    }
+
+    public function addFriend(User $user)
+    {
+        $this->friends()->attach($user->id);
+    }
+
+    public function removeFriend(User $user)
+    {
+        $this->friends()->detach($user->id);
+    }
+
+    /* Friends End */
+
+
+    // API AUTH by Juan
+    public static function isValidUser($username, $password)
+    {
+        if (Auth::attempt(['username' => $username, 'password' => $password]))
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
+
+

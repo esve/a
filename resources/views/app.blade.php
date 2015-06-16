@@ -7,9 +7,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>ESVE - @yield('title')</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<!-- link href="{ { asset('/css/app.css') } }" rel="stylesheet" -->
+
+    <!-- Styling -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <!-- Jquery UI -->
+    {!! Html::style('/jquery-ui1.11.2.vinotinto/jquery-ui.min.css') !!}
+    {!! Html::script('/jquery-ui1.11.2.vinotinto/jquery-ui.min.js') !!}
+
+    <!-- FancyBox -->
+    {!! Html::style('/fancybox/source/jquery.fancybox.css?v=2.1.5') !!}
+    {!! Html::script('/fancybox/source/jquery.fancybox.pack.js?v=2.1.5') !!}
+
+    {!! Html::style('/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5') !!}
+    {!! Html::script('/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5') !!}
+    {!! Html::script('/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6') !!}
+    {!! Html::style('/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7') !!}
+    {!! Html::script('/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7') !!}
+
+    <!-- Mi Estilo -->
     {!! Html::style('/css/app.css') !!}
-	<!-- Fonts -->
+    {!! Html::style('/css/bootstrap-dark.min.css') !!}
+
+
+    <!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,6 +56,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('users') }}">Usuarios</a></li>
+                    <li><a href="{{ url('dash') }}">Friends Overall</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -42,8 +65,12 @@
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
 						<li><a href="{{ url('/auth/register') }}">Register</a></li>
 					@else
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->username }}  ( {{Auth::user()->email}} ) <span class="caret"></span></a>
+                        <a href="{{ url('/user/'.Auth::user()->username) }}">
+                            {!! HTML::image(checkMyUserPhoto(), 'a picture', array('class' => 'topnavUserThumb')) !!}
+                           </a>
+                        <li class="dropdown" style="margin-left:8px">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->username }}  ( {{Auth::user()->email}} ) <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('/profile') }}">Profile</a></li>
                                 <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
@@ -54,10 +81,20 @@
 			</div>
 		</div>
 	</nav>
-
-	@yield('content')
-	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    @yield('content')
+	<!-- Scripts
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>  -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#profileThumbBig").fancybox({
+            });
+        });
+
+        $(document).ready(function() {
+            $( "#tabs" ).tabs();
+        });
+
+    </script>
 </body>
 </html>

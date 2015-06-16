@@ -1,4 +1,18 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+* {
+	font-family: Segoe UI;
+}
+
+@font-face {
+	font-family: Play;
+	src: url(../fonts/Play-Regular.ttf);
+}
+
+table {
+    transition: all 0.25s ease-in-out;
+
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -9,7 +23,7 @@ body {
   margin: 0;
     opacity: 1;
     transition: opacity .25s ease-in-out;
-}
+	}
 article,
 aside,
 details,
@@ -4094,6 +4108,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-right: 15px;
   }
 }
+
 @media (min-width: 768px) {
   .navbar-left {
     float: left !important;
@@ -6239,6 +6254,15 @@ label,
 Custom
 */
 
+/* Centro navbar con flex */
+@media all {
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 .flexcontainer {
     display: -webkit-flex;
     display: flex;
@@ -6254,8 +6278,15 @@ flex-direction: row;
     border: 1px solid white;
     box-shadow: 0px 0px 7px #000;
     margin: 0 auto;
-    display: flex;
     border-radius: 50%;
+    width:150px;
+    height:150px;
+    margin:10px;
+}
+
+.imgthumb {
+    border-radius: 50%;
+    border:1px solid #FFF;
 }
 
 .listGamesSidebar li {
@@ -6268,8 +6299,37 @@ list-style: none;
 }
 	
 .listGamesSidebar li input {
-	width:16px;
-    margin-left:5px;
-	height:16px;
-    vertical-align: sub;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
 }
+
+.topnavUserThumb {
+    opacity:0.6;
+    position: relative;
+    float: left;
+    padding: 0px;
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.topnavUserThumb:hover {
+    opacity:1;
+}
+
+/* IDS */
+
+/* Tab Style Hack */
+#tabs {width: 100%;border: 1px solid #222;box-shadow: 0px 0px 11px #000 inset;}
+#tabs .tabContenido {display: inline-block;width: 100%;padding-top: 2em;text-align: center}
+#tabs .ui-widget-header {background:none;border:none;float: right;margin-right: 11px;}
+#tabs .ui-state-active {opacity:1}
+#tabs .ui-state-active a {text-decoration: underline}
+.ui-tabs .ui-tabs-nav li {opacity:0.3}
+.ui-tabs .ui-tabs-nav li {transition: opacity 0.1s ease;}
+/* END Tab Style Hack */
+
+/* Footer */
+#footer {margin: 0 auto;width: 200px;text-align: center;margin-top: 15px;float: right;clear: right;width: 100%;}

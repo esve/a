@@ -1,47 +1,23 @@
 <?php
 
-/**
- * Informacion Global del perfil del Usuario Logeado (Local)
- */
+// Chequea picture del usuario loggeado y establece una por defecto
+function checkMyUserPhoto()
+    {
+        $imagePath = 'images/';
+        if (Auth::user()->pic) {
+            return $imagePath.Auth::user()->pic;
+        } else {
+            return $imagePath.'default-user.png';
+        }
+    }
 
-function myID()
-{
-    return false;
-}
-
-
-function myUsername()
-{
-    return false;
-}
-
-function myCountry()
-{
-    return false;
-}
-
-function myName()
-{
-    return false;
-}
-
-function myLastname()
-{
-    return false;
-}
-
-function eMailAddress()
-{
-    return false;
-}
-
-function goSteamId()
-{
-    return false;
-}
-
-function myPic()
-{
-    return false;
-}
-
+// Chequea picture del $user solicitado y establece una por defecto
+function getUserPhoto($user)
+    {
+        $imagePath = 'images/';
+        if ($user->pic) {
+            return $imagePath.$user->pic;
+        } else {
+            return $imagePath.'default-user.png';
+        }
+    }
